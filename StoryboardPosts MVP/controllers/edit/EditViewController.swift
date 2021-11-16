@@ -7,7 +7,17 @@
 
 import UIKit
 
-class EditViewController: BaseViewController, EditView {
+protocol EditRequestProtocol {
+    func apiCallPost(id: Int)
+    func apiEditPost(id: Int, post: Post)
+}
+
+protocol EditResponseProtocol{
+        func onCallPost(post: Post)
+        func onEditPost(status: Bool)
+}
+
+class EditViewController: BaseViewController, EditResponseProtocol {
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var titleTextField: UITextField!
     @IBOutlet weak var bodyLabel: UILabel!
@@ -15,14 +25,11 @@ class EditViewController: BaseViewController, EditView {
     
     var PostID: String = "1"
     var post : Post = Post()
-    var presenter: EditPresenter!
+    var presenter: EditRequestProtocol!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        presenter = EditPresenter()
-        presenter.editView = self
-        presenter.controller = self
+        configureViper()
         presenter?.apiCallPost(id: Int(PostID)!)
     }
     
@@ -39,7 +46,24 @@ class EditViewController: BaseViewController, EditView {
         }
     }
     
+    func configureViper(){
+        let manager = HttpManager()
+        let presenter = EditPresenter()
+        let interactor = EditInteractor()
+        let routing = EditRouting()
+        
+        presenter.controller = self
+        
+        self.presenter = presenter
+        presenter.interactor = interactor
+        presenter.routing = routing
+        routing.viewController = self
+        interactor.manager = manager
+        interactor.response = self
+    }
+    
     func onCallPost(post: Post) {
+        self.hideProgress()
         if post != nil {
             self.post = post
             initViews()
@@ -49,6 +73,7 @@ class EditViewController: BaseViewController, EditView {
     }
     
     func onEditPost(status: Bool) {
+        self.hideProgress()
         if status{
             self.dismiss(animated: false, completion: nil)
             NotificationCenter.default.post(name: NSNotification.Name(rawValue: "load"), object: nil)

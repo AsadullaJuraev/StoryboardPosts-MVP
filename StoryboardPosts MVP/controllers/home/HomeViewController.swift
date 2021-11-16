@@ -7,12 +7,26 @@
 
 import UIKit
 
-class HomeViewController: BaseViewController, UITableViewDelegate, UITableViewDataSource, HomeView {
+protocol HomeRequestProtocol{
+    func apiPostList()
+    func apiPostDelete(post: Post)
+    
+    func navigateCreateScreen()
+    func navigateEditScreen(id: String)
+}
+
+protocol HomeResponseProtocol{
+    func onLoadPosts(posts: [Post])
+    func onPostDelete(deleted: Bool)
+}
+
+class HomeViewController: BaseViewController, UITableViewDelegate, UITableViewDataSource,  HomeResponseProtocol {
+    
+    var presenter: HomeRequestProtocol!
     
     @IBOutlet weak var tableView: UITableView!
     
     var items: Array<Post> = Array()
-    var presenter: HomePresenter!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,14 +40,28 @@ class HomeViewController: BaseViewController, UITableViewDelegate, UITableViewDa
         initNavigation()
         tableView.delegate = self
         tableView.dataSource = self
+        configureViper()
+        presenter.apiPostList()
+    }
+    
+    func configureViper(){
+        let manager = HttpManager()
+        let presenter = HomePresenter()
+        let interactor = HomeInteractor()
+        let routing = HomeRouting()
         
-        presenter = HomePresenter()
-        presenter.homeView = self
         presenter.controller = self
-        presenter?.apiPostList()
+        
+        self.presenter = presenter
+        presenter.interactor = interactor
+        presenter.routing = routing
+        routing.viewController = self
+        interactor.manager = manager
+        interactor.response = self
     }
 
     func onLoadPosts(posts: [Post]) {
+        self.hideProgress()
         if posts.count > 0 {
             refreshTableView(posts: posts)
         }else{
@@ -42,6 +70,7 @@ class HomeViewController: BaseViewController, UITableViewDelegate, UITableViewDa
     }
     
     func onPostDelete(deleted: Bool) {
+        self.hideProgress()
         if deleted {
             presenter?.apiPostList()
         }else{

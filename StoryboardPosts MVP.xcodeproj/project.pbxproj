@@ -10,6 +10,13 @@
 		091FABBED87CFE25D545BCDB /* Pods_StoryboardPosts_MVP.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0276975F097F62FAB3AB2E90 /* Pods_StoryboardPosts_MVP.framework */; };
 		0F51165A9083E67317309BB4 /* Pods_StoryboardPosts_MVPTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3AF05732297D85275CF38AA3 /* Pods_StoryboardPosts_MVPTests.framework */; };
 		B296BBFC78E79A207E2F0C2F /* Pods_StoryboardPosts_MVP_StoryboardPosts_MVPUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8981AFFFF442319743BCBD87 /* Pods_StoryboardPosts_MVP_StoryboardPosts_MVPUITests.framework */; };
+		F37939F82743627700EBD4C0 /* HomeRouting.swift in Sources */ = {isa = PBXBuildFile; fileRef = F37939F72743627700EBD4C0 /* HomeRouting.swift */; };
+		F37939FA2743631800EBD4C0 /* HomeInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F37939F92743631800EBD4C0 /* HomeInteractor.swift */; };
+		F37939FC274363C700EBD4C0 /* HttpManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F37939FB274363C700EBD4C0 /* HttpManager.swift */; };
+		F37939FE27437D8000EBD4C0 /* CreateRouting.swift in Sources */ = {isa = PBXBuildFile; fileRef = F37939FD27437D8000EBD4C0 /* CreateRouting.swift */; };
+		F3793A0027437D9300EBD4C0 /* CreateInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F37939FF27437D9300EBD4C0 /* CreateInteractor.swift */; };
+		F3793A022743835E00EBD4C0 /* EditInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3793A012743835E00EBD4C0 /* EditInteractor.swift */; };
+		F3793A042743836800EBD4C0 /* EditRouting.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3793A032743836800EBD4C0 /* EditRouting.swift */; };
 		F3D74E22273A2E4E000E4F10 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3D74E21273A2E4E000E4F10 /* AppDelegate.swift */; };
 		F3D74E24273A2E4E000E4F10 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3D74E23273A2E4E000E4F10 /* SceneDelegate.swift */; };
 		F3D74E29273A2E4E000E4F10 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F3D74E27273A2E4E000E4F10 /* Main.storyboard */; };
@@ -18,15 +25,12 @@
 		F3D74E39273A2E52000E4F10 /* StoryboardPosts_MVPTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3D74E38273A2E52000E4F10 /* StoryboardPosts_MVPTests.swift */; };
 		F3D74E43273A2E52000E4F10 /* StoryboardPosts_MVPUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3D74E42273A2E52000E4F10 /* StoryboardPosts_MVPUITests.swift */; };
 		F3D74E45273A2E52000E4F10 /* StoryboardPosts_MVPUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3D74E44273A2E52000E4F10 /* StoryboardPosts_MVPUITestsLaunchTests.swift */; };
-		F3D74E5B273A4A76000E4F10 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3D74E5A273A4A76000E4F10 /* HomeView.swift */; };
 		F3D74E5D273A4A80000E4F10 /* HomePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3D74E5C273A4A80000E4F10 /* HomePresenter.swift */; };
 		F3D74E60273A4A95000E4F10 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3D74E5E273A4A95000E4F10 /* HomeViewController.swift */; };
 		F3D74E61273A4A95000E4F10 /* HomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F3D74E5F273A4A95000E4F10 /* HomeViewController.xib */; };
-		F3D74E64273A4AC1000E4F10 /* CreateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3D74E63273A4AC1000E4F10 /* CreateView.swift */; };
 		F3D74E66273A4AD5000E4F10 /* CreatePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3D74E65273A4AD5000E4F10 /* CreatePresenter.swift */; };
 		F3D74E69273A4AE2000E4F10 /* CreateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3D74E67273A4AE2000E4F10 /* CreateViewController.swift */; };
 		F3D74E6A273A4AE2000E4F10 /* CreateViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F3D74E68273A4AE2000E4F10 /* CreateViewController.xib */; };
-		F3D74E6D273A4AF2000E4F10 /* EditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3D74E6C273A4AF2000E4F10 /* EditView.swift */; };
 		F3D74E6F273A4B01000E4F10 /* EditPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3D74E6E273A4B01000E4F10 /* EditPresenter.swift */; };
 		F3D74E72273A4B10000E4F10 /* EditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3D74E70273A4B10000E4F10 /* EditViewController.swift */; };
 		F3D74E73273A4B10000E4F10 /* EditViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F3D74E71273A4B10000E4F10 /* EditViewController.xib */; };
@@ -64,6 +68,13 @@
 		8981AFFFF442319743BCBD87 /* Pods_StoryboardPosts_MVP_StoryboardPosts_MVPUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_StoryboardPosts_MVP_StoryboardPosts_MVPUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		96464B47DA3E57E4BD5DB1D5 /* Pods-StoryboardPosts MVP-StoryboardPosts MVPUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StoryboardPosts MVP-StoryboardPosts MVPUITests.debug.xcconfig"; path = "Target Support Files/Pods-StoryboardPosts MVP-StoryboardPosts MVPUITests/Pods-StoryboardPosts MVP-StoryboardPosts MVPUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		C8BDD138E2532BA4F09310A3 /* Pods-StoryboardPosts MVP.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StoryboardPosts MVP.debug.xcconfig"; path = "Target Support Files/Pods-StoryboardPosts MVP/Pods-StoryboardPosts MVP.debug.xcconfig"; sourceTree = "<group>"; };
+		F37939F72743627700EBD4C0 /* HomeRouting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeRouting.swift; sourceTree = "<group>"; };
+		F37939F92743631800EBD4C0 /* HomeInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeInteractor.swift; sourceTree = "<group>"; };
+		F37939FB274363C700EBD4C0 /* HttpManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HttpManager.swift; sourceTree = "<group>"; };
+		F37939FD27437D8000EBD4C0 /* CreateRouting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateRouting.swift; sourceTree = "<group>"; };
+		F37939FF27437D9300EBD4C0 /* CreateInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateInteractor.swift; sourceTree = "<group>"; };
+		F3793A012743835E00EBD4C0 /* EditInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditInteractor.swift; sourceTree = "<group>"; };
+		F3793A032743836800EBD4C0 /* EditRouting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditRouting.swift; sourceTree = "<group>"; };
 		F3D74E1E273A2E4E000E4F10 /* StoryboardPosts MVP.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "StoryboardPosts MVP.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F3D74E21273A2E4E000E4F10 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F3D74E23273A2E4E000E4F10 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -76,15 +87,12 @@
 		F3D74E3E273A2E52000E4F10 /* StoryboardPosts MVPUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "StoryboardPosts MVPUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F3D74E42273A2E52000E4F10 /* StoryboardPosts_MVPUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryboardPosts_MVPUITests.swift; sourceTree = "<group>"; };
 		F3D74E44273A2E52000E4F10 /* StoryboardPosts_MVPUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryboardPosts_MVPUITestsLaunchTests.swift; sourceTree = "<group>"; };
-		F3D74E5A273A4A76000E4F10 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		F3D74E5C273A4A80000E4F10 /* HomePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePresenter.swift; sourceTree = "<group>"; };
 		F3D74E5E273A4A95000E4F10 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		F3D74E5F273A4A95000E4F10 /* HomeViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeViewController.xib; sourceTree = "<group>"; };
-		F3D74E63273A4AC1000E4F10 /* CreateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateView.swift; sourceTree = "<group>"; };
 		F3D74E65273A4AD5000E4F10 /* CreatePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatePresenter.swift; sourceTree = "<group>"; };
 		F3D74E67273A4AE2000E4F10 /* CreateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateViewController.swift; sourceTree = "<group>"; };
 		F3D74E68273A4AE2000E4F10 /* CreateViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CreateViewController.xib; sourceTree = "<group>"; };
-		F3D74E6C273A4AF2000E4F10 /* EditView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditView.swift; sourceTree = "<group>"; };
 		F3D74E6E273A4B01000E4F10 /* EditPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditPresenter.swift; sourceTree = "<group>"; };
 		F3D74E70273A4B10000E4F10 /* EditViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditViewController.swift; sourceTree = "<group>"; };
 		F3D74E71273A4B10000E4F10 /* EditViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EditViewController.xib; sourceTree = "<group>"; };
@@ -204,6 +212,7 @@
 			isa = PBXGroup;
 			children = (
 				F3D74E7A273A4CF1000E4F10 /* Network.swift */,
+				F37939FB274363C700EBD4C0 /* HttpManager.swift */,
 			);
 			path = network;
 			sourceTree = "<group>";
@@ -222,9 +231,11 @@
 		F3D74E53273A49E1000E4F10 /* home */ = {
 			isa = PBXGroup;
 			children = (
-				F3D74E59273A4A62000E4F10 /* presenter */,
 				F3D74E5E273A4A95000E4F10 /* HomeViewController.swift */,
 				F3D74E5F273A4A95000E4F10 /* HomeViewController.xib */,
+				F37939F72743627700EBD4C0 /* HomeRouting.swift */,
+				F3D74E5C273A4A80000E4F10 /* HomePresenter.swift */,
+				F37939F92743631800EBD4C0 /* HomeInteractor.swift */,
 			);
 			path = home;
 			sourceTree = "<group>";
@@ -232,9 +243,11 @@
 		F3D74E54273A49EA000E4F10 /* create */ = {
 			isa = PBXGroup;
 			children = (
-				F3D74E62273A4A9B000E4F10 /* presenter */,
 				F3D74E67273A4AE2000E4F10 /* CreateViewController.swift */,
 				F3D74E68273A4AE2000E4F10 /* CreateViewController.xib */,
+				F3D74E65273A4AD5000E4F10 /* CreatePresenter.swift */,
+				F37939FD27437D8000EBD4C0 /* CreateRouting.swift */,
+				F37939FF27437D9300EBD4C0 /* CreateInteractor.swift */,
 			);
 			path = create;
 			sourceTree = "<group>";
@@ -242,9 +255,11 @@
 		F3D74E55273A49F1000E4F10 /* edit */ = {
 			isa = PBXGroup;
 			children = (
-				F3D74E6B273A4AE6000E4F10 /* presenter */,
 				F3D74E70273A4B10000E4F10 /* EditViewController.swift */,
 				F3D74E71273A4B10000E4F10 /* EditViewController.xib */,
+				F3793A012743835E00EBD4C0 /* EditInteractor.swift */,
+				F3793A032743836800EBD4C0 /* EditRouting.swift */,
+				F3D74E6E273A4B01000E4F10 /* EditPresenter.swift */,
 			);
 			path = edit;
 			sourceTree = "<group>";
@@ -274,33 +289,6 @@
 				F3D74E2C273A2E52000E4F10 /* LaunchScreen.storyboard */,
 			);
 			path = apputils;
-			sourceTree = "<group>";
-		};
-		F3D74E59273A4A62000E4F10 /* presenter */ = {
-			isa = PBXGroup;
-			children = (
-				F3D74E5A273A4A76000E4F10 /* HomeView.swift */,
-				F3D74E5C273A4A80000E4F10 /* HomePresenter.swift */,
-			);
-			path = presenter;
-			sourceTree = "<group>";
-		};
-		F3D74E62273A4A9B000E4F10 /* presenter */ = {
-			isa = PBXGroup;
-			children = (
-				F3D74E63273A4AC1000E4F10 /* CreateView.swift */,
-				F3D74E65273A4AD5000E4F10 /* CreatePresenter.swift */,
-			);
-			path = presenter;
-			sourceTree = "<group>";
-		};
-		F3D74E6B273A4AE6000E4F10 /* presenter */ = {
-			isa = PBXGroup;
-			children = (
-				F3D74E6C273A4AF2000E4F10 /* EditView.swift */,
-				F3D74E6E273A4B01000E4F10 /* EditPresenter.swift */,
-			);
-			path = presenter;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -547,18 +535,22 @@
 			buildActionMask = 2147483647;
 			files = (
 				F3D74E6F273A4B01000E4F10 /* EditPresenter.swift in Sources */,
+				F37939FC274363C700EBD4C0 /* HttpManager.swift in Sources */,
 				F3D74E69273A4AE2000E4F10 /* CreateViewController.swift in Sources */,
 				F3D74E78273A4B4C000E4F10 /* PostTableViewCell.swift in Sources */,
+				F37939FA2743631800EBD4C0 /* HomeInteractor.swift in Sources */,
 				F3D74E60273A4A95000E4F10 /* HomeViewController.swift in Sources */,
-				F3D74E5B273A4A76000E4F10 /* HomeView.swift in Sources */,
 				F3D74E7D273A4DD4000E4F10 /* BaseViewController.swift in Sources */,
+				F37939FE27437D8000EBD4C0 /* CreateRouting.swift in Sources */,
 				F3D74E22273A2E4E000E4F10 /* AppDelegate.swift in Sources */,
 				F3D74E24273A2E4E000E4F10 /* SceneDelegate.swift in Sources */,
-				F3D74E6D273A4AF2000E4F10 /* EditView.swift in Sources */,
+				F3793A042743836800EBD4C0 /* EditRouting.swift in Sources */,
 				F3D74E75273A4B1E000E4F10 /* Post.swift in Sources */,
-				F3D74E64273A4AC1000E4F10 /* CreateView.swift in Sources */,
+				F3793A022743835E00EBD4C0 /* EditInteractor.swift in Sources */,
+				F3793A0027437D9300EBD4C0 /* CreateInteractor.swift in Sources */,
 				F3D74E66273A4AD5000E4F10 /* CreatePresenter.swift in Sources */,
 				F3D74E72273A4B10000E4F10 /* EditViewController.swift in Sources */,
+				F37939F82743627700EBD4C0 /* HomeRouting.swift in Sources */,
 				F3D74E7B273A4CF1000E4F10 /* Network.swift in Sources */,
 				F3D74E5D273A4A80000E4F10 /* HomePresenter.swift in Sources */,
 			);
@@ -743,6 +735,7 @@
 				DEVELOPMENT_TEAM = RXC5B5KH7P;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "StoryboardPosts MVP/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "Storyboard VIPER";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -772,6 +765,7 @@
 				DEVELOPMENT_TEAM = RXC5B5KH7P;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "StoryboardPosts MVP/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "Storyboard VIPER";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;

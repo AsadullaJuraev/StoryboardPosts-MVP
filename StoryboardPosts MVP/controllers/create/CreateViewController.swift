@@ -7,14 +7,22 @@
 
 import UIKit
 
-class CreateViewController: BaseViewController, CreateView {
+protocol CreateRequestProtocol{
+    func apiCreatePost(post: Post)
+}
+
+protocol CreateResponseProtocol {
+    func onCreated(status: Bool)
+}
+
+class CreateViewController: BaseViewController, CreateResponseProtocol {
 
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var titleField: UITextField!
     @IBOutlet weak var bodyLabel: UILabel!
     @IBOutlet weak var bodyTextView: UITextView!
     
-    var presenter: CreatePresenter!
+    var presenter: CreateRequestProtocol!
     var item = Post()
     
     override func viewDidLoad() {
@@ -24,16 +32,29 @@ class CreateViewController: BaseViewController, CreateView {
     }
 
     func initViews(){
-        presenter = CreatePresenter()
-        presenter.createView = self
-        presenter.controller = self
         titleLabel.text = "Title"
         bodyLabel.text = "Body"
-
+        configureViper()
         let add = UIImage(named: "ic_send")
         navigationItem.rightBarButtonItem = UIBarButtonItem(image: add, style: .plain, target: self, action: #selector(rightTapped))
     }
 
+    func configureViper(){
+        let manager = HttpManager()
+        let presenter = CreatePresenter()
+        let interactor = CreateInteractor()
+        let routing = CreateRouting()
+        
+        presenter.controller = self
+        
+        self.presenter = presenter
+        presenter.interactor = interactor
+        presenter.routing = routing
+        routing.viewController = self
+        interactor.manager = manager
+        interactor.response = self
+    }
+    
     @objc func rightTapped(){
         if titleField.text != "" && bodyTextView.text != "" {
             presenter?.apiCreatePost(post: Post(title: titleField.text!, body: bodyTextView.text!))
